@@ -1,0 +1,60 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ch.example</groupId>
+    <artifactId>parentpom</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Sample Parent POM</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <java.version>1.8</java.version>
+        <java-api-doc.url>http://docs.oracle.com/javase/8/docs/api</java-api-doc.url>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.amashchenko.maven.plugin</groupId>
+                    <artifactId>gitflow-maven-plugin</artifactId>
+                    <version>1.14.0</version>
+                    <configuration>
+                        <commitMessages>
+                            <featureStartMessage>[gitflow-maven-plugin] update versions for feature branch</featureStartMessage>
+                            <featureFinishMessage>[gitflow-maven-plugin] update versions for development branch</featureFinishMessage>
+                            <hotfixStartMessage>[gitflow-maven-plugin] update versions for hotfix</hotfixStartMessage>
+                            <hotfixFinishMessage>[gitflow-maven-plugin] update for next development version</hotfixFinishMessage>
+                            <hotfixVersionUpdateMessage>[gitflow-maven-plugin] update to hotfix version</hotfixVersionUpdateMessage>
+                            <releaseStartMessage>[gitflow-maven-plugin] update versions for release</releaseStartMessage>
+                            <releaseFinishMessage>[gitflow-maven-plugin] update for next development version</releaseFinishMessage>
+                            <releaseVersionUpdateMessage>[gitflow-maven-plugin] update for next development version</releaseVersionUpdateMessage>
+
+                            <!-- git merge messages -->
+                            <!-- Default git merge commit message will be used if left empty or undefined. -->
+                            <!-- / git merge messages -->
+
+                            <tagHotfixMessage>[gitflow-maven-plugin] tag hotfix</tagHotfixMessage>
+                            <tagReleaseMessage>[gitflow-maven-plugin] tag release</tagReleaseMessage>
+
+                            <!-- Migration Note: This was called <updateDevToAvoidConflitsMessage> in version 1.11.0, but has been deprecated in favour of the correctly spelt one below. -->
+                            <updateDevToAvoidConflictsMessage>[gitflow-maven-plugin] update develop to production version to avoid merge conflicts</updateDevToAvoidConflictsMessage>
+                            <updateDevBackPreMergeStateMessage>[gitflow-maven-plugin] update develop version back to pre-merge state</updateDevBackPreMergeStateMessage>
+
+                            <updateReleaseToAvoidConflictsMessage>[gitflow-maven-plugin] update release to hotfix version to avoid merge conflicts</updateReleaseToAvoidConflictsMessage>
+                            <updateReleaseBackPreMergeStateMessage>[gitflow-maven-plugin] update release version back to pre-merge state</updateReleaseBackPreMergeStateMessage>
+                        </commitMessages>
+                        <versionDigitToIncrement>1</versionDigitToIncrement>
+                    </configuration>
+                </plugin>
+
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
+
